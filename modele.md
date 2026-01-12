@@ -8,25 +8,41 @@
 
 #### 1.1 Prosta Średnia Krocząca (Simple Moving Average, SMA)
 - Wszystkie obserwacje w oknie mają **równą wagę**
-- Wzór: $\text{SMA}_t = \frac{1}{k}(y_t + y_{t-1} + ... + y_{t-k+1})$
+- Wzór:
+
+```math
+\text{SMA}_t = \frac{1}{k}(y_t + y_{t-1} + ... + y_{t-k+1})
+```
 - Najprostsza forma, równe traktowanie wszystkich wartości
 
 #### 1.2 Ważona Średnia Krocząca (Weighted Moving Average, WMA)
 - Nowsze obserwacje mają **większą wagę** niż starsze
-- Wzór: $\text{WMA}_t = \frac{w_1 y_t + w_2 y_{t-1} + ... + w_k y_{t-k+1}}{w_1 + w_2 + ... + w_k}$
-- Wagi często przypisywane liniowo: $w_i = k - i + 1$
+- Wzór:
+
+```math
+\text{WMA}_t = \frac{w_1 y_t + w_2 y_{t-1} + ... + w_k y_{t-k+1}}{w_1 + w_2 + ... + w_k}
+```
+- Wagi często przypisywane liniowo: `w_i = k - i + 1`
 - Przykład (k=3): najnowsza obserwacja waga 3, druga waga 2, trzecia waga 1
 
 #### 1.3 Wykładnicza Średnia Krocząca (Exponential Moving Average, EMA)
 - Wagi maleją **wykładniczo** w przeszłość
-- Wzór: $\text{EMA}_t = \alpha \cdot y_t + (1-\alpha) \cdot \text{EMA}_{t-1}$
-- $\alpha$ (alpha) - współczynnik wygładzania (0 < α < 1)
+- Wzór:
+
+```math
+\text{EMA}_t = \alpha \cdot y_t + (1-\alpha) \cdot \text{EMA}_{t-1}
+```
+- α (alpha) - współczynnik wygładzania (0 < α < 1)
 - Im większe α, tym większy wpływ najnowszych danych
 - Popularna w analizie technicznej na giełdzie
 
 #### 1.4 Centrowana Średnia Krocząca (Centered Moving Average, CMA)
 - Używa obserwacji **przed i po** danym punkcie
-- Wzór: $\text{CMA}_t = \frac{1}{k}(y_{t-\lfloor k/2 \rfloor} + ... + y_t + ... + y_{t+\lfloor k/2 \rfloor})$
+- Wzór:
+
+```math
+\text{CMA}_t = \frac{1}{k}(y_{t-\lfloor k/2 \rfloor} + ... + y_t + ... + y_{t+\lfloor k/2 \rfloor})
+```
 - Lepsze wygładzanie, ale **nie nadaje się do prognozowania** (wymaga przyszłych danych)
 - Stosowana głównie do analizy historycznej i dekompozycji
 
@@ -56,8 +72,12 @@
 - **Triple ES (Holt-Winters)** - dane z trendem i sezonowością
 
 **Jak działa:**
-- $\hat{y}_{t+1} = \alpha \cdot y_t + (1-\alpha) \cdot \hat{y}_t$
-- $\alpha$ (alpha) - parametr wygładzania (0-1)
+
+```math
+\hat{y}_{t+1} = \alpha \cdot y_t + (1-\alpha) \cdot \hat{y}_t
+```
+
+- α (alpha) - parametr wygładzania (0-1)
 - Nowsze obserwacje mają większą wagę
 
 **Zalety:**
@@ -84,7 +104,10 @@
 - **q** - rząd średniej kroczącej (liczba przeszłych błędów)
 
 **Jak działa:**
-$$y_t = c + \phi_1 y_{t-1} + ... + \phi_p y_{t-p} + \theta_1 \varepsilon_{t-1} + ... + \theta_q \varepsilon_{t-q} + \varepsilon_t$$
+
+```math
+y_t = c + \phi_1 y_{t-1} + ... + \phi_p y_{t-p} + \theta_1 \varepsilon_{t-1} + ... + \theta_q \varepsilon_{t-q} + \varepsilon_t
+```
 
 **Wymaganie:** Szereg musi być **stacjonarny** (stała średnia, wariancja)
 
@@ -137,8 +160,12 @@ $$y_t = c + \phi_1 y_{t-1} + ... + \phi_p y_{t-p} + \theta_1 \varepsilon_{t-1} +
 
 **Jak działa:**
 - Każda zmienna jest modelowana jako funkcja przeszłych wartości **wszystkich** zmiennych
-- $\mathbf{y}_t = \mathbf{c} + \mathbf{A}_1 \mathbf{y}_{t-1} + ... + \mathbf{A}_p \mathbf{y}_{t-p} + \mathbf{\varepsilon}_t$
-- $\mathbf{y}_t$ - wektor zmiennych w czasie $t$
+
+```math
+\mathbf{y}_t = \mathbf{c} + \mathbf{A}_1 \mathbf{y}_{t-1} + ... + \mathbf{A}_p \mathbf{y}_{t-p} + \mathbf{\varepsilon}_t
+```
+
+gdzie **y**_t - wektor zmiennych w czasie t
 
 **Przykład:** Prognozowanie PKB, inflacji i stóp procentowych jednocześnie
 
@@ -192,11 +219,16 @@ $$y_t = c + \phi_1 y_{t-1} + ... + \phi_p y_{t-p} + \theta_1 \varepsilon_{t-1} +
 **Definicja:** Model opracowany przez Facebook, zaprojektowany do łatwego prognozowania szeregów czasowych z silną sezonowością.
 
 **Jak działa:**
-- Model addytywny: $y(t) = g(t) + s(t) + h(t) + \varepsilon_t$
-  - $g(t)$ - trend (liniowy lub logistyczny)
-  - $s(t)$ - sezonowość (roczna, tygodniowa, dzienna)
-  - $h(t)$ - efekt świąt/wydarzeń
-  - $\varepsilon_t$ - błąd
+- Model addytywny:
+
+```math
+y(t) = g(t) + s(t) + h(t) + \varepsilon_t
+```
+
+  - g(t) - trend (liniowy lub logistyczny)
+  - s(t) - sezonowość (roczna, tygodniowa, dzienna)
+  - h(t) - efekt świąt/wydarzeń
+  - ε_t - błąd
 
 **Zalety:**
 - Bardzo prosty w użyciu (automatyczny)
@@ -213,55 +245,6 @@ $$y_t = c + \phi_1 y_{t-1} + ... + \phi_p y_{t-p} + \theta_1 \varepsilon_{t-1} +
 - Może być za uproszczony dla złożonych przypadków
 
 **Zastosowanie:** Biznes (sprzedaż, ruch na stronie), dane z wieloma sezonowościami i świętami
-
----
-
-## Porównanie Modeli
-
-| Model | Złożoność | Sezonowość | Trend | Wielowymiarowe | Interpretacja | Wymagane dane |
-|-------|-----------|------------|-------|----------------|---------------|---------------|
-| **Średnie Kroczące** | Niska | ❌ | ❌ | ❌ | Bardzo łatwa | Małe |
-| **Exp. Smoothing** | Niska | ✅ (Holt-Winters) | ✅ | ❌ | Łatwa | Małe-średnie |
-| **ARIMA** | Średnia | ❌ | ✅ | ❌ | Średnia | Średnie |
-| **SARIMA** | Wysoka | ✅ | ✅ | ❌ | Trudna | Duże |
-| **VAR** | Wysoka | ❌ | ✅ | ✅ | Trudna | Duże |
-| **LSTM** | Bardzo wysoka | ✅ | ✅ | ✅ | Bardzo trudna | Bardzo duże |
-| **Prophet** | Średnia | ✅ | ✅ | ❌ | Średnia | Średnie |
-
----
-
-## Kiedy użyć którego modelu?
-
-**Średnie Kroczące:**
-- Szybkie wygładzanie i analiza eksploracyjna
-- Dane bez trendu i sezonowości
-
-**Exponential Smoothing:**
-- Dane z trendem i/lub sezonowością
-- Potrzebujesz szybkiego modelu
-
-**ARIMA:**
-- Dane stacjonarne lub możliwe do zróżnicowania
-- Brak wyraźnej sezonowości
-- Potrzebujesz interpretacji statystycznej
-
-**SARIMA:**
-- Dane z regularną sezonowością
-- Masz wystarczająco dużo danych historycznych
-
-**VAR:**
-- Wiele powiązanych szeregów czasowych
-- Analiza wzajemnych zależności między zmiennymi
-
-**LSTM:**
-- Bardzo złożone nieliniowe wzorce
-- Dużo danych treningowych
-- Dokładność ważniejsza niż interpretacja
-
-**Prophet:**
-- Dane biznesowe z wieloma sezonowościami
-- Chcesz szybki start bez głębokiej wiedzy
-- Ważne jest uwzględnienie świąt/wydarzeń
 
 ---
 

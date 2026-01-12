@@ -11,8 +11,8 @@
 - **Zależność czasowa** - wartości mogą być skorelowane z poprzednimi wartościami
 
 ### Notacja matematyczna:
-- Szereg czasowy oznaczamy: $\{y_1, y_2, y_3, ..., y_t, ..., y_n\}$ lub $\{y_t\}$
-- gdzie $t$ - indeks czasu, $n$ - liczba obserwacji
+- Szereg czasowy oznaczamy: {y₁, y₂, y₃, ..., yₜ, ..., yₙ} lub {yₜ}
+- gdzie t - indeks czasu, n - liczba obserwacji
 
 ### Przykłady szeregów czasowych:
 - Dzienna temperatura w danym mieście
@@ -33,7 +33,7 @@
 
 ## 2. Komponenty szeregów czasowych
 
-### 2.1 Trend ($T_t$)
+### 2.1 Trend (Tₜ)
 
 **Definicja:** Długoterminowa, systematyczna tendencja zmian wartości szeregu czasowego w określonym kierunku.
 
@@ -50,7 +50,7 @@
 
 **Wykrywanie:** Metody wygładzania (średnie kroczące, regresja)
 
-### 2.2 Sezonowość ($S_t$)
+### 2.2 Sezonowość (Sₜ)
 
 **Definicja:** Regularne, powtarzające się wahania wartości szeregu czasowego, które występują w stałych odstępach czasu (cykl roczny, kwartalny, miesięczny).
 
@@ -70,7 +70,7 @@
 - Dane miesięczne: roczna sezonowość (12 miesięcy)
 - Dane kwartalne: roczna sezonowość (4 kwartały)
 
-### 2.3 Cykl ($C_t$)
+### 2.3 Cykl (Cₜ)
 
 **Definicja:** Długookresowe, nieregularne wahania wokół trendu, które nie mają stałego okresu powtarzalności.
 
@@ -89,14 +89,14 @@
 - Cykle życia produktów na rynku
 - Cykle słoneczne (aktywność Słońca co ~11 lat)
 
-### 2.4 Biały szum ($\varepsilon_t$)
+### 2.4 Biały szum (εₜ)
 
 **Definicja:** Składnik losowy szeregu czasowego, reprezentujący przypadkowe, nieprzewidywalne wahania bez żadnej struktury czasowej.
 
 **Właściwości matematyczne:**
-- Średnia wartość: $E(\varepsilon_t) = 0$
-- Stała wariancja: $\text{Var}(\varepsilon_t) = \sigma^2$
-- Brak autokorelacji: $\text{Cov}(\varepsilon_t, \varepsilon_s) = 0$ dla $t \neq s$
+- Średnia wartość: E(εₜ) = 0
+- Stała wariancja: Var(εₜ) = σ²
+- Brak autokorelacji: Cov(εₜ, εₛ) = 0 dla t ≠ s
 - Obserwacje są niezależne od siebie
 
 **Charakterystyka:**
@@ -118,10 +118,16 @@
 Szereg czasowy można przedstawić jako kombinację komponentów:
 
 **Model addytywny:**
-$$Y_t = T_t + S_t + C_t + \varepsilon_t$$
+
+```math
+Y_t = T_t + S_t + C_t + \varepsilon_t
+```
 
 **Model multiplikatywny:**
-$$Y_t = T_t \times S_t \times C_t \times \varepsilon_t$$
+
+```math
+Y_t = T_t \times S_t \times C_t \times \varepsilon_t
+```
 
 **Kiedy stosować:**
 - **Addytywny**: gdy amplituda wahań sezonowych jest stała
