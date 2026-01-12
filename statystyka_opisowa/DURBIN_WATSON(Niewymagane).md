@@ -1,5 +1,5 @@
 
-**[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span>
 
 # Test Durbina-Watsona (Durbin-Watson Test)
 

@@ -1,5 +1,5 @@
 
-**[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span>
 
 
 # Bayesian Information Criterion (BIC) - Bayesowskie Kryterium Informacyjne

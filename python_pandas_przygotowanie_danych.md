@@ -169,7 +169,7 @@ df = pd.read_excel('dane.xlsx', sheet_name='Arkusz1')
 df = pd.read_excel('dane.xlsx', sheet_name=0)  # pierwszy arkusz
 ```
 
-**[NIEWYMAGANE]** **3. Wczytywanie z innych źródeł:** **[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span> **3. Wczytywanie z innych źródeł:** <span style="color:red">**[NIEWYMAGANE]**</span>
 ```python
 # Z JSON
 df = pd.read_json('dane.json')
@@ -246,7 +246,7 @@ df.isnull().sum().sum()
 df[df.isnull().any(axis=1)]
 
 # Wizualizacja brakujących danych
-**[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span>
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.heatmap(df.isnull(), cbar=False, cmap='viridis')
@@ -417,7 +417,7 @@ print(roznica.total_seconds())  # 604800.0
 
 #### Konwersja string → datetime (parsing):
 
-**[NIEWYMAGANE]** **Metoda `strptime()` - String Parse Time** **[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span> **Metoda `strptime()` - String Parse Time** <span style="color:red">**[NIEWYMAGANE]**</span>
 
 ```python
 from datetime import datetime
@@ -450,7 +450,7 @@ print(dt)  # 2024-01-15 00:00:00
 
 #### Konwersja datetime → string (formatting):
 
-**[NIEWYMAGANE]** **Metoda `strftime()` - String Format Time** **[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span> **Metoda `strftime()` - String Format Time** <span style="color:red">**[NIEWYMAGANE]**</span>
 
 ```python
 from datetime import datetime
@@ -611,7 +611,7 @@ df = pd.read_csv('dane.csv', parse_dates=['data'], index_col='data')
 df = pd.read_csv('dane.csv', parse_dates=['data'], date_format='%d/%m/%Y')
 ```
 
-**[NIEWYMAGANE]** **Obsługa mieszanych formatów:** **[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span> **Obsługa mieszanych formatów:** <span style="color:red">**[NIEWYMAGANE]**</span>
 
 ```python
 import pandas as pd
@@ -639,7 +639,7 @@ df['data'] = pd.to_datetime(df['data'], infer_datetime_format=True)
 df['data'] = pd.to_datetime(df['data'], dayfirst=True)
 ```
 
-**[NIEWYMAGANE]** **Parametry `dayfirst` i `yearfirst`:** **[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span> **Parametry `dayfirst` i `yearfirst`:** <span style="color:red">**[NIEWYMAGANE]**</span>
 
 ```python
 import pandas as pd
@@ -658,7 +658,7 @@ df['data_eu'] = pd.to_datetime(df['data'], dayfirst=True)   # 1 lutego, 5 marca
 print(df)
 ```
 
-**[NIEWYMAGANE]** **Konwersja timestamp (Unix epoch):** **[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span> **Konwersja timestamp (Unix epoch):** <span style="color:red">**[NIEWYMAGANE]**</span>
 
 ```python
 import pandas as pd

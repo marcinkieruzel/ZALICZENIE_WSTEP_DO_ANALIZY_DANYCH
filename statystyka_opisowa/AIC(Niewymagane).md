@@ -1,5 +1,5 @@
 
-**[NIEWYMAGANE]**
+<span style="color:red">**[NIEWYMAGANE]**</span>
 
 # Akaike Information Criterion (AIC) - Kryterium Informacyjne Akaike
 
